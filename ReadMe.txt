@@ -1,0 +1,1 @@
+use "manager@edtex.in" email for login as a manager

@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/dashboard">Leave Tracking System</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/apply-leave">Apply Leave</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/track-leave">Track Leave</a>
+        </li>
+        <li class="logout">
+          <a class="nav-link" style="color: white" routerLink="/">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>Track Leave Applications</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Leave Type</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let application of leaveApplications">
+        <td>{{ application.leaveType }}</td>
+        <td>{{ application.startDate }}</td>
+        <td>{{ application.endDate }}</td>
+        <td>{{ application.status }}</td>
+        <td *ngIf="application.status === 'Pending'">
+          <button (click)="editLeave(application.leaveIndex)">Edit</button>
+          <button (click)="deleteLeave(application)">Delete</button>
+        </td>
+        <td *ngIf="application.status === 'Rejected'">
+          <p>
+            <b>Rejection Reason:</b>
+            {{ rejectionReasons[application.leaveIndex] }}
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

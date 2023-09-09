@@ -1,0 +1,85 @@
+<div class="container" *ngIf="isLoginView">
+  <h1>Login</h1>
+  <div>
+    <form #loginForm="ngForm" (ngSubmit)="login()">
+      <div class="input">
+        <input
+          type="email"
+          name="email"
+          placeholder="example@edtex.in"
+          [(ngModel)]="loginObj.email"
+          required
+          email
+        /><br />
+      </div>
+      <div class="input">
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter Password"
+          [(ngModel)]="loginObj.password"
+          required
+          minlength="8"
+        /><br />
+      </div>
+      <div class="input">
+        <button type="submit">Login</button>
+      </div>
+      <span style="font-size: larger"
+        >Don't Have an Account? <a (click)="toggleView()">SignUp</a></span
+      >
+    </form>
+  </div>
+</div>
+
+<div class="container" *ngIf="!isLoginView">
+  <h1>SignUp</h1>
+  <div>
+    <form #signupForm="ngForm" (ngSubmit)="signUp()">
+      <div class="input">
+        <input
+          type="text"
+          name="fname"
+          placeholder="Enter First Name"
+          [(ngModel)]="signupObj.fname"
+          required
+        /><br />
+      </div>
+      <div class="input">
+        <input
+          type="text"
+          name="lname"
+          placeholder="Enter Last Name"
+          [(ngModel)]="signupObj.lname"
+          required
+        /><br />
+      </div>
+      <div class="input">
+        <input
+          type="email"
+          name="email"
+          placeholder="example@edtex.in"
+          [(ngModel)]="signupObj.email"
+          required
+          email
+        /><br />
+      </div>
+      <div class="input">
+        <input
+          type="password"
+          name="pwd"
+          placeholder="Enter Password"
+          [(ngModel)]="signupObj.password"
+          required
+          minlength="8"
+        /><br />
+      </div>
+      <div class="input">
+        <button type="submit">Signup</button>
+      </div>
+      <span style="font-size: larger">
+        Have an Account? <a (click)="toggleView()">Login</a></span
+      >
+    </form>
+  </div>
+</div>
