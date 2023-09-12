@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/dashboard">Leave Tracking System</a>
@@ -47,8 +48,8 @@
         <td>{{ application.endDate }}</td>
         <td>{{ application.status }}</td>
         <td *ngIf="application.status === 'Pending'">
-          <button (click)="editLeave(application.leaveIndex)">Edit</button>
-          <button (click)="deleteLeave(application)">Delete</button>
+          <button class="btn" (click)="editLeave(application.leaveIndex)"><i class="fa fa-edit"></i></button>
+          <button class="buton btn" (click)="deleteLeave(application)"><i class="fa fa-trash"></i></button>
         </td>
         <td *ngIf="application.status === 'Rejected'">
           <p>
