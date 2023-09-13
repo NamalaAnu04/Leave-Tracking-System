@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>Edit Leave Application</h1>
+  <form #editLeaveForm="ngForm" (ngSubmit)="updateLeave()">
+    <div class="form-group">
+      <label for="leaveType">Leave Type:</label>
+      <select
+        id="leaveType"
+        name="leaveType"
+        id="leaveType"
+        class="form-control"
+        [(ngModel)]="leaveApplication.leaveType"
+        required
+      >
+        <option value="sick_leave">Sick Leave</option>
+        <option value="vacation">Vacation</option>
+        <option value="personal_leave">Personal Leave</option>
+        <option value="casual_leave">Casual Leave</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="startDate">Start Date:</label>
+      <input
+        type="date"
+        id="startDate"
+        name="startDate"
+        class="form-control"
+        [(ngModel)]="leaveApplication.startDate"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="endDate">End Date:</label>
+      <input
+        type="date"
+        id="endDate"
+        name="endDate"
+        class="form-control"
+        [(ngModel)]="leaveApplication.endDate"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="reason">Reason for Leave:</label>
+      <textarea
+        id="reason"
+        name="reason"
+        id="reason"
+        class="form-control"
+        [(ngModel)]="leaveApplication.reason"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>

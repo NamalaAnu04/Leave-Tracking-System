@@ -1,0 +1,63 @@
+
+<head>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  </head>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          
+          <div class="dropdown">
+            <button class="dropbtn">Leave Tracking System</button>
+            <div class="dropdown-content">
+            <button routerLink="/apply-leave" >Apply Leave</button>
+            <button routerLink="/track-leave">Track Leave</button>
+          </div>
+          </div>
+        </li>
+        <li class="logout">
+          <div class="dropdown">
+          <button class="dropbtn"><i class='far fa-user-circle user-icon'></i> {{ signupObj.fname}} {{signupObj.lname }}</button>
+          <button routerLink="/" class="dropdown-content buto" (click)="logout()"><i class="fa fa-sign-out" style="font-size:15px"></i> Logout</button>
+        </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>Track Leave Applications</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Leave Type</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let application of leaveApplications">
+        <td>{{ application.leaveType }}</td>
+        <td>{{ application.startDate }}</td>
+        <td>{{ application.endDate }}</td>
+        <td>{{ application.status }}</td>
+        <td *ngIf="application.status === 'Pending'">
+          <button class="btn" (click)="editLeave(application.leaveIndex)"><i class="fa fa-edit"></i></button>
+          <button class="buton btn" (click)="deleteLeave(application)"><i class="fa fa-trash"></i></button>
+        </td>
+        <td *ngIf="application.status === 'Rejected'">
+          <p>
+            <b>Rejection Reason:</b>
+            {{ rejectionReasons[application.leaveIndex] }}
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

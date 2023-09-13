@@ -1,0 +1,89 @@
+.nav-item {
+  cursor: pointer;
+  list-style-type: none;
+}
+
+.navbar-light {
+  background-color: #05386b;
+  color: #05386b;
+  padding-left: 0px !important;
+}
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.tracker {
+  margin-left: 20px;
+}
+.welcome {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.leave-counts {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.leave-counts p {
+  margin: 10px 0;
+  font-size: 20px;
+}
+.user-icon {
+  background-color: #05386b;
+  color:white;
+}
+.dropbtn {
+  background-color: #05386b;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #05386b;
+  min-width: 100px;
+  min-height: 50px;
+  z-index: 1;
+  
+}
+
+.dropdown-content button {
+  color: white;
+  padding: 12px 45px;
+  text-decoration: none;
+  display: block;
+  border: none;
+  background-color: #05386b;
+}
+.logout {
+  margin-left: 1450px;
+  background-color: #05386b;
+}
+.logout button{
+  border: none;
+  color: white;
+  padding-right: 50px;
+}
+.buto{
+  padding: 12px 40px;
+}
+
+.dropdown-content button:hover {background-color: black;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #05386b;}
+
