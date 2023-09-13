@@ -1,0 +1,70 @@
+<head>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  </head>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          
+          <div class="dropdown">
+            <button class="dropbtn">Leave Tracking System</button>
+            <div class="dropdown-content">
+            <button routerLink="/apply-leave" >Apply Leave</button>
+            <button routerLink="/track-leave">Track Leave</button>
+          </div>
+          </div>
+        </li>
+        <li class="logout">
+          <div class="dropdown">
+          <button class="dropbtn"><i class='far fa-user-circle user-icon'></i> {{ signupObj.fname}} {{signupObj.lname }}</button>
+          <button routerLink="/" class="dropdown-content buto" (click)="logout()"><i class="fa fa-sign-out" style="font-size:15px"></i> Logout</button>
+        </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <h1>Leave Application Form</h1>
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <label for="leaveType">Leave Type:</label>
+    <select
+      id="leaveType"
+      name="leaveType"
+      [(ngModel)]="leaveObj.leaveType"
+      required
+    >
+      <option value="sick_leave">Sick Leave</option>
+      <option value="vacation">Vacation</option>
+      <option value="personal_leave">Personal Leave</option>
+      <option value="casual_leave">Casual Leave</option>
+    </select>
+    <label for="startDate">Start Date:</label>
+    <input
+      type="date"
+      id="startDate"
+      name="startDate"
+      [(ngModel)]="leaveObj.startDate"
+      required
+    />
+    <label for="endDate">End Date:</label>
+    <input
+      type="date"
+      id="endDate"
+      name="endDate"
+      [(ngModel)]="leaveObj.endDate"
+      required
+    />
+    <label for="reason">Reason for Leave:</label>
+    <textarea
+      id="reason"
+      name="reason"
+      [(ngModel)]="leaveObj.reason"
+      required
+    ></textarea>
+    <button type="submit" class="buton">Submit</button>
+  </form>
+</div>
